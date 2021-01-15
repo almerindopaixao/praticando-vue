@@ -6,8 +6,8 @@ module.exports = {
     browser: true,
   },
   extends: [
-    "plugin:vue/essential",
-    "eslint:recommended",
+    'plugin:vue/essential',
+    'eslint:recommended',
     'plugin:prettier/recommended'
   ],
   globals: {
@@ -15,9 +15,11 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    parser: "babel-eslint",
+    parser: 'babel-eslint',
     ecmaVersion: 11,
     souceType: 'module',
   },
+  extends: ['plugin:vue/recommended'],
+  plugins: ['vue'],
   rules: {},
 };

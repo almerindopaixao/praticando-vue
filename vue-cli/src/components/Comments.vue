@@ -2,16 +2,26 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <hr>
-    <Form v-on:add-todo="addComment" />
+    <Form @add-todo="addComment" />
     <div class="list-group">
-      <p v-if="comments.length <= 0" >Sem comentários...</p>
-      <div class="list-group-item" v-for="(comment, index) in allComments" v-bind:key="index + 1000">
+      <p v-if="comments.length <= 0">
+        Sem comentários...
+      </p>
+      <div
+        v-for="(comment, index) in allComments"
+        :key="index + 1000"
+        class="list-group-item"
+      >
         <span class="comment__author">
           Author: <strong>{{ comment.name }}</strong>
         </span>
         <p>{{ comment.message }}</p>
         <div>
-          <a v-on:click.prevent="removeComment(index)" href="#" title="Excluir">Excluir</a>
+          <a
+            href="#"
+            title="Excluir"
+            @click.prevent="removeComment(index)"
+          >Excluir</a>
         </div>
       </div>
     </div>
@@ -19,55 +29,56 @@
 </template>
 
 <script>
-  import Form from './Form';
+import Form from './Form';
 
-  export default {
-    name: 'Comments',
-    components: {
-      Form,
-    },
+export default {
+  name: 'Comments',
+  components: {
+    Form,
+  },
 
-    props: {
-      title: String,
-    },
-
-    data() {
-      return {
-        comments: [],
-      }
-    },
-
-    methods: {
-      addComment(comment) {
-        this.comments.push(comment);
-      },
-
-      removeComment(index) {
-        this.comments.splice(index, 1);
-      },
-    },
-
-    computed: {
-      allComments() {
-        return this.comments.map((comment) => ({
-          ...comment,
-          name: comment.name.trim() === '' ? 'Anônimo' : comment.name,
-        }));
-      }
-    },
-
-    watch: {
-      comments(val) {
-        console.log('oi', val);
-      }
+  props: {
+    title: {
+      type: String,
+      default: '',
     }
-  }
+  },
+
+  data() {
+    return {
+      comments: [],
+    };
+  },
+
+  computed: {
+    allComments() {
+      return this.comments.map((comment) => ({
+        ...comment,
+        name: comment.name.trim() === '' ? 'Anônimo' : comment.name,
+      }));
+    },
+  },
+
+  watch: {
+    comments(val) {
+      console.log('oi', val);
+    },
+  },
+
+  methods: {
+    addComment(comment) {
+      this.comments.push(comment);
+    },
+
+    removeComment(index) {
+      this.comments.splice(index, 1);
+    },
+  },
+};
 </script>
 
 <style scoped>
-
-  .list-group {
-    margin-top: 30px;
-  }
-
+.list-group {
+  margin-top: 30px;
+}
 </style>
