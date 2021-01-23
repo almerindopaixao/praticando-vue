@@ -1,0 +1,47 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <button @click="aumentar">Aumentar</button>
+    <button @click="contador2++">Aumentar 2</button>
+    <button @click="diminuir">Diminuir</button>
+    <p>Contador: {{ contador }} | {{ contador2 }}</P>
+    <p>Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            contador: 0,
+            contador2: 0
+        },
+
+        methods: {
+            aumentar() {
+                this.contador++;
+            },
+
+            diminuir() {
+                this.contador--;
+            },
+        },
+        
+        computed: {
+            resultado() {
+                console.log('Mostrando resultado..')
+                return this.contador >= 5
+                    ? this.contador == 5
+                    ? 'Igual a 5'
+                    : 'Maior que 5'
+                    : 'Menor que 5';
+            },
+        },
+    });
+</script>
+
+<style>
+    button {
+        cursor: pointer;
+    }
+</style>

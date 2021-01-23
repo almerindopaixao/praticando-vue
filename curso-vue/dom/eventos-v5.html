@@ -20,7 +20,9 @@
         <span @mousemove.stop.prevent>PARAR AQUI !!!!</span>
     </p>
 
-    <a @click.prevent="naoNavegar" href="https://google.com.br" target="_blank">Google</a>
+    <a @click.prevent="naoNavegar" href="https://google.com.br" target="_blank">Google</a><br /><br />
+
+    <input @keyup.enter.alt="exibirAlerta" type="text">
 </div>
 
 <script>
@@ -60,6 +62,10 @@
             naoNavegar($event) {
                 console.log('Não Navegar')
                 // $event.preventDefault();
+            },
+
+            exibirAlerta($event) {
+                alert('Estou te alertando !!');
             },
         },
     });

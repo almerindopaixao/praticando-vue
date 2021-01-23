@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+
+    button {
+        cursor: pointer;
+    }
+
+    .mouse-event {
+        cursor: pointer;
+    }
+
+</style>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <p>{{ contador > 10 ? 'Maior do que 10' : contador === 10 ? 'Igual a 10' : 'Menor do que 10' }}</p>
+    <button type="button" @click="somarUm">Somar 1</button>
+    <button type="button" @click="subtrairUm">Subtrair 1</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data() {
+            return {
+                contador: 0,
+            };
+        },
+
+        methods: {
+            somarUm() {
+                this.contador ++;
+            },
+
+            subtrairUm() {
+                if (this.contador <= 0) return;
+                this.contador--;
+            },
+        },
+    });
+</script>
