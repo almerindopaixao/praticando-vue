@@ -1,0 +1,78 @@
+#efeito {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.destaque {
+	background-color: red;
+	width: 200px !important;
+}
+
+.encolher {
+	background-color: gray;
+	width: 50px !important;
+}
+
+.border {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	height: 100px;
+}
+
+.box {
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: white;
+	font-weight: bold;
+}
+
+.box1 {
+	width: 50px;
+	height: 50px;
+}
+
+.box2 {
+	width: 100px;
+	height: 100px;
+}
+
+.box3 {
+	width: 200px;
+	height: 200px;
+}
+
+.cl1 {
+	background-color: red;
+}
+
+.cl2 {
+	background-color: blue;
+}
+
+.cl3 {
+	background-color: orangered;
+}
+
+.cl4 {
+	background-color: black;
+}
+
+.cl5 {
+	background-color: green;
+}
+
+.container {
+	height: 50px;
+	width: 600px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.barra-progresso {
+	height: 100%;
+	background-color: red;
+	
+	transition: width 1s linear;
+}
