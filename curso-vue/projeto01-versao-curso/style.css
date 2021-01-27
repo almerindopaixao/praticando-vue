@@ -9,7 +9,7 @@
     --color-player: #838dc3;
 }
 
-html {
+* {
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -22,4 +22,130 @@ html {
     margin: 10px;
     padding: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*Área dos Pontos*/
+
+.scores {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.score {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score h1 {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.life-bar {
+    width: 80%;
+    height: 20px;
+    border: 1px solid #aaa;
+}
+
+.life-bar .life {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: green;
+}
+
+.life-bar .life.danger {
+    background-color: red;
+}
+
+/* Área do Resultado */
+
+.result {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.result .win {
+    color: green;
+}
+
+.result .lose {
+    color: red;
+}
+
+.result .tie {
+    color: yellow;
+}
+
+/* Àrea dos Botões (Controle do Jogo) */
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.new-game {
+    background-color: var(--color-button-start);
+    color: white;
+}
+
+.attack {
+    background-color: var(--color-button-red);
+    color: white;
+}
+
+.especial-attack {
+    background-color: var(--color-button-yellow);
+}
+
+.heal {
+    background-color: var(--color-button-green);
+    color: white;
+}
+
+.give-up {
+    background-color: var(--color-button-give-up);
+    color: white;
+}
+
+/* Área dos Logs */
+
+.logs ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logs ul li {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0px;
+    padding: 3px 0px;
+    font-size: 13px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.player {
+    background-color: var(--color-player);
+    color: #fff;
+}
+
+.monster {
+    background-color: var(--color-monster);
+    color: #fff;
 }
