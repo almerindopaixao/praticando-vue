@@ -1,0 +1,171 @@
+:root {
+    --color-button-yellow: #ffc107;
+    --color-button-red: #dc3545;
+    --color-button-green: #198754;
+    --color-button-start: #0d6efd;
+    --color-button-give-up: #6c757d;
+    --color-background: #f8f0f0;
+    --color-monster: #e27778;
+    --color-player: #838dc3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+
+    font-family: 'Press Start 2P', cursive;
+}
+
+#app {
+    height: 100vh;
+    background: var(--color-background);
+}
+
+#container {
+    padding: 15px 15px;
+}
+
+.scoreboard {
+    width: 80%;
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.scoreboard__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    margin: 20px 0;
+    padding: 40px;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bar__progress__container {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    height: 25px;
+    width: 90%;
+
+    margin-top: 20px;
+}
+
+.bar__progress__player {
+    height: 100%;
+    background-color: green;
+}
+
+.bar__progress__monster {
+    height: 100%;
+    background-color: green;
+}
+
+.score {
+    margin-top: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+
+    font-size: 14px;
+}
+
+button + button {
+    margin-left: 20px;
+}
+
+.button__start {
+    background-color: var(--color-button-start);
+    color: white;
+}
+
+.button__attack {
+    background-color: var(--color-button-red);
+    color: white;
+}
+
+.button__attack-special {
+    background-color: var(--color-button-yellow);
+}
+
+.button__heal {
+    background-color: var(--color-button-green);
+    color: white;
+}
+
+.button__give-up {
+    background-color: var(--color-button-give-up);
+    color: white;
+}
+
+.game-history {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+
+    padding: 30px 0;
+}
+
+.points {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    margin: 0 20px;
+}
+
+.points.monster {
+    background-color: var(--color-monster);
+    color: white;
+}
+
+.points.player {
+    background-color: var(--color-player);
+    color: white;
+
+    margin-top: 10px;
+}
+
+.player + .monster {
+    margin-top: 10px;
+}
+
+.danger {
+    background-color: red;
+}
+
+.result {
+    margin: 10px 0;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}

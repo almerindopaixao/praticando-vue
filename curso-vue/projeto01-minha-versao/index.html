@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matador de Monstro | Minha Versão</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <main id="container">
+            <div class="scoreboard__container">
+
+                <div class="scoreboard">
+                    <h2>Jogador</h2>
+
+                    <div class="bar__progress__container">
+                        <div class="bar__progress__player"
+                            :class="{danger: scoreView.player < 20}"
+                            :style="{width: `${scoreView.player}%`}"
+                        >
+                        </div>
+                    </div>
+
+                    <p class="score">{{ scoreView.player }}%</p>
+                </div>
+
+                <div class="scoreboard">
+                    <h2>Monstro</h2>
+
+                    <div class="bar__progress__container">
+                        <div class="bar__progress__monster"
+                            :class="{danger: scoreView.monster < 20}"
+                            :style="{width: `${scoreView.monster}%`}"
+                        >
+                        </div>
+                    </div>
+
+                    <p class="score">{{ scoreView.monster }}%</p>
+                </div>
+
+            </div>
+
+            <div v-show="finish" class="result">
+               <p :style="{color: 'red'}" v-if="score.player <= 0 && score.player < score.monster">Você Perdeu :(</p>
+               <p :style="{color: 'green'}" v-else-if="score.monster <= 0 && score.monster < score.player">Você Ganhou :)</p>
+               <p :style="{color: 'yellow'}" v-else-if="score.monster == score.player">Você Empatou :/</p>
+            </div>
+
+            <div class="controls">
+                <button 
+                    v-show="!start" 
+                    @click="start = !start" 
+                    class="button__start" 
+                    type="button"
+                >
+                    INICIAR NOVO JOGO
+                </button>
+
+                <button 
+                    @click="attack(10)" 
+                    v-show="start" 
+                    class="button__attack" 
+                    type="button"
+                >
+                    ATAQUE
+                </button>
+
+                <button 
+                    @click="attack(15)"  
+                    v-show="start"  
+                    class="button__attack-special" 
+                    type="button"
+                >
+                    ATAQUE ESPECIAL
+                </button>
+
+                <button 
+                    @click="heal" 
+                    v-show="start"  
+                    class="button__heal" 
+                    type="button"
+                >
+                    CURAR
+                </button>
+
+                <button 
+                    v-show="start"  
+                    @click="giveUp" 
+                    class="button__give-up" 
+                    type="button"
+                >
+                    DESISTIR
+                </button>
+            </div>
+
+            <div v-if="damage.length > 0" class="game-history">
+                <template v-for="{player, monster, cure} in damage"> 
+                    <div class="points monster">
+                        MONSTRO ATINGIU JOGADOR COM {{ monster }}
+                    </div>
+                    <div v-if="player" class="points player">
+                        JOGADOR ATINGIU MONSTRO COM {{ player }}
+                    </div>
+                    <div v-else class="points player">
+                        JOGADOR GANHOU FORÇA DE {{ cure }}
+                    </div>
+                </template>
+            </div>
+        </main>
+    </div>
+    <script async defer src="app.js"></script>
+</body>
+</html>

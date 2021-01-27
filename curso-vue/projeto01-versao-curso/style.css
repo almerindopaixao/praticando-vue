@@ -1,0 +1,25 @@
+:root {
+    --color-button-yellow: #ffc107;
+    --color-button-red: #dc3545;
+    --color-button-green: #198754;
+    --color-button-start: #0d6efd;
+    --color-button-give-up: #6c757d;
+    --color-background: #f8f0f0;
+    --color-monster: #e27778;
+    --color-player: #838dc3;
+}
+
+html {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel {
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
