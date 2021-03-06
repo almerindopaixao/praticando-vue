@@ -4,8 +4,13 @@ import store from './store';
 import router from './router';
 
 import './plugins/vuetify';
+import './plugins/axios';
 
 Vue.config.productionTip = false
+
+Vue.filter('currency', value => {
+    return 'R$ ' + value.toLocaleString();
+})
 
 new Vue({
     store,

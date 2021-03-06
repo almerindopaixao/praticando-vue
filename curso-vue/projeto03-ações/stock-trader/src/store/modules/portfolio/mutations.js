@@ -27,4 +27,9 @@ const sellStock = (state, payload) => {
     state.funds += stockPrice * quantity;
 }
 
-export default { buyStock, sellStock };
+const setPortfolio = (state, payload) => {
+    state.funds = payload.funds;
+    state.stocksPortfolio = payload.stocksPortfolio ? payload.stocksPortfolio : [];
+}
+
+export default { buyStock, sellStock, setPortfolio };
