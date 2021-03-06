@@ -5,7 +5,7 @@
         <strong>
           {{stock.name }}
           <small>
-            (Preço: {{stock.price }}) | Qtde: {{ stock.quantity }}
+            (Preço: {{stock.price | currency }}) | Qtde: {{ stock.quantity }}
           </small>
         </strong>
       </v-card-title>
@@ -18,10 +18,11 @@
           type="number"
           min="0"
           v-model.number="quantity" 
+          :error="insufficientQuantity || !Number.isInteger(quantity)"
         />
         <v-btn
         @click="sellStock" 
-          :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+          :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
           class="blue darken-3 white--text"
         >
           Vender
@@ -47,6 +48,12 @@ export default {
     return {
       quantity: 0,
     };
+  },
+
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity;
+    }
   },
 
   methods: {

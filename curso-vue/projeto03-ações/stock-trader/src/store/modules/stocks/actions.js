@@ -8,7 +8,7 @@ const buyStock = ({ commit }, order) => {
 const initStocks =  async ({ commit }) => {
     try {
         const result = await api.get('');
-        commit('setStocks', result.data);
+        commit('setStocks', result.data.stocks);
     } catch (err) {
         if (err.isAxiosError) {
             if (err.response === undefined) {
@@ -24,4 +24,8 @@ const initStocks =  async ({ commit }) => {
     }
 }
 
-export default { buyStock, initStocks };
+const randomizeStocks = ({ commit }) => {
+    commit('randomizeStocks');
+}
+
+export default { buyStock, initStocks, randomizeStocks };
